@@ -1,22 +1,8 @@
-import {React, useState, useEffect} from 'react';
+import React from 'react';
 import { Link } from "react-router-dom";
 import Moment from "react-moment";
 
-const SERVER_URL = process.env.REACT_APP_BACKEND_SERVER_URL;
-
-const JobsList = () => {
-  const [jobList, setJobList] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      let url = `${SERVER_URL}/jobs`;
-      const res = await fetch(url);
-      const data = await res.json();
-      setJobList(data);
-    };
-    fetchData();
-  }, []);
-
+const JobsList = ({jobList}) => {
   return (
     <div id="jobs" className="jobs">
       <div className="container">

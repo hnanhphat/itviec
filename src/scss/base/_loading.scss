@@ -1,0 +1,76 @@
+.spinner {
+  background: $white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(100% - 30px);
+  max-width: 1024px;
+  height: 300px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 115px;
+    height: 115px;
+    padding: 3px;
+    position: absolute;
+
+    &--01 {
+      animation: configure-clockwise 3s ease-in-out 0s infinite alternate;
+      border: 4px solid $red;
+    }
+
+    &--02 {
+      animation: configure-xclockwise 3s ease-in-out 0s infinite alternate;
+      border: 4px solid $black;
+      @include tranform_c(rotate(45deg));
+    }
+  }
+}
+
+@keyframes configure-clockwise {
+  0% {
+    @include tranform_c(rotate(0));
+  }
+
+  25% {
+    @include tranform_c(rotate(90deg));
+  }
+
+  50% {
+    @include tranform_c(rotate(180deg));
+  }
+
+  75% {
+    @include tranform_c(rotate(270deg));
+  }
+
+  100% {
+    @include tranform_c(rotate(360deg));
+  }
+}
+
+@keyframes configure-xclockwise {
+  0% {
+    @include tranform_c(rotate(45deg));
+  }
+
+  25% {
+    @include tranform_c(rotate(-45deg));
+  }
+
+  50% {
+    @include tranform_c(rotate(-135deg));
+  }
+
+  75% {
+    @include tranform_c(rotate(-225deg));
+  }
+
+  100% {
+    @include tranform_c(rotate(-315deg));
+  }
+}
