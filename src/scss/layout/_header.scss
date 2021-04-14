@@ -1,0 +1,32 @@
+.header {
+  background: $bg-black;
+  color: $white;
+  padding: 5px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__left {
+    display: flex;
+    align-items: center;
+    .logo {
+      width: 112px;
+      margin-right: 40px;
+      img {
+        width: 100%;
+      }
+    }
+  }
+  ul {
+    display: flex;
+    li {
+      padding: 0 10px;
+    }
+  }
+}
