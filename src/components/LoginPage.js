@@ -9,6 +9,7 @@ const LoginPage = ({isAuth, setIsAuth}) => {
   const [user, setUser] = useState([]);
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   const inputUser = (e) => {
     setUserName(e.target.value);
@@ -21,7 +22,10 @@ const LoginPage = ({isAuth, setIsAuth}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if(userName === user[0].user_id && password === user[0].user_pwd) {
+      setError('');
       setIsAuth(true);
+    } else {
+      setError('Usernam or Password incorrect!');
     }
   }
 
@@ -46,6 +50,7 @@ const LoginPage = ({isAuth, setIsAuth}) => {
   return (
     <div id="form-search" className="form-search">
       <div className="container">
+        <p className={`form-search__error ${error ? 'active' : ''}`}>{error ? error : ''}</p>
         <form onSubmit={handleSubmit}>
           <div className="form-search__bnr">
             <img src={logo} alt="IT Viec" />

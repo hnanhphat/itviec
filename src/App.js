@@ -14,7 +14,7 @@ function App() {
   const [isAuth, setIsAuth] = useState(false);
   return (
     <div className="App">
-      <Navbar />
+      <Navbar isAuth={isAuth} />
       <Switch>
         <Route path="/" exact component={HomePage} />
         <Route path="/login" component={() => <LoginPage isAuth={isAuth} setIsAuth={setIsAuth} />} />

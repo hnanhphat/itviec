@@ -27,6 +27,28 @@
     display: flex;
     li {
       padding: 0 10px;
+      &.dropdown {
+        position: relative;
+        .box {
+          position: absolute;
+          background: $white;
+          color: $black;
+          width: 100%;
+          height: 100%;
+          top: 100%;
+          left: 0;
+          padding: 0 10px;
+          transform-origin: center top;
+          @include tranform_c(scaleY(0));
+          @include transition_c(all .5s ease-out);
+        }
+
+        &:hover {
+          .box {
+            @include tranform_c(scaleY(1));
+          }
+        }
+      }
     }
   }
 }
